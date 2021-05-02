@@ -12,13 +12,14 @@ class FeatureCollectionViewCell: UICollectionViewCell {
     private var imageView: UIImageView = UIImageView()
     private var titleLabel: UILabel = UILabel()
     private var descriptionLabel: UILabel = UILabel()
-    
+    private var presentButton: UIButton = UIButton()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .white
         contentView.layer.borderWidth = 1
         contentView.layer.borderColor = UIColor.black.cgColor
-        contentView.layer.cornerRadius = 6
+        contentView.layer.cornerRadius = 10
         
         setUpViews()
         setUpConstraints()
@@ -37,6 +38,16 @@ class FeatureCollectionViewCell: UICollectionViewCell {
         descriptionLabel.textColor = .black
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(descriptionLabel)
+        
+//        presentButton.setTitle(">>>", for: .normal)
+//        presentButton.setTitleColor(.black, for: .normal)
+//        presentButton.backgroundColor = .white
+//        presentButton.layer.cornerRadius = 6
+//        presentButton.addTarget(self, action: #selector(dismissViewController), for: .touchUpInside)
+//        presentButton.translatesAutoresizingMaskIntoConstraints = false
+//        contentView.addSubview(presentButton)
+        
+        
     }
     
     func setUpConstraints() {
@@ -46,7 +57,7 @@ class FeatureCollectionViewCell: UICollectionViewCell {
         ])
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 10),
-            titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 7),
+            titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 15),
         ])
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),

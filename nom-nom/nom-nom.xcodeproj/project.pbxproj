@@ -14,6 +14,7 @@
 		0CFFE4D0263B888500FE66E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CFFE4CE263B888500FE66E5 /* LaunchScreen.storyboard */; };
 		0CFFE4D8263B995200FE66E5 /* FeatureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFFE4D7263B995200FE66E5 /* FeatureCollectionViewCell.swift */; };
 		0CFFE4DA263B997F00FE66E5 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFFE4D9263B997F00FE66E5 /* Feature.swift */; };
+		0CFFE4DC263E2B4800FE66E5 /* GroceryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFFE4DB263E2B4800FE66E5 /* GroceryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0CFFE4D1263B888500FE66E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CFFE4D7263B995200FE66E5 /* FeatureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCollectionViewCell.swift; sourceTree = "<group>"; };
 		0CFFE4D9263B997F00FE66E5 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		0CFFE4DB263E2B4800FE66E5 /* GroceryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				0CFFE4D9263B997F00FE66E5 /* Feature.swift */,
 				0CFFE4C5263B888300FE66E5 /* SceneDelegate.swift */,
 				0CFFE4C7263B888300FE66E5 /* ViewController.swift */,
+				0CFFE4DB263E2B4800FE66E5 /* GroceryViewController.swift */,
 				0CFFE4CC263B888500FE66E5 /* Assets.xcassets */,
 				0CFFE4CE263B888500FE66E5 /* LaunchScreen.storyboard */,
 				0CFFE4D1263B888500FE66E5 /* Info.plist */,
@@ -141,6 +144,7 @@
 			files = (
 				0CFFE4C8263B888300FE66E5 /* ViewController.swift in Sources */,
 				0CFFE4D8263B995200FE66E5 /* FeatureCollectionViewCell.swift in Sources */,
+				0CFFE4DC263E2B4800FE66E5 /* GroceryViewController.swift in Sources */,
 				0CFFE4DA263B997F00FE66E5 /* Feature.swift in Sources */,
 				0CFFE4C4263B888300FE66E5 /* AppDelegate.swift in Sources */,
 				0CFFE4C6263B888300FE66E5 /* SceneDelegate.swift in Sources */,

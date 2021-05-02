@@ -7,29 +7,30 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+protocol GroceryDelegate: class {
+}
+
+class ViewController: UIViewController, GroceryDelegate {
     
     private var featureCollectionView: UICollectionView!
     
     private var titleLabel : UILabel = UILabel()
     private var messageLabel: UILabel = UILabel()
     
-    private var features: [Feature] = []
-    
     private let featureCellReuseIdentifier = "featureCellReuseIdentifier"
-    private let featureCellPadding: CGFloat = 15
+    private let featureCellPadding: CGFloat = 30
+    
+    private var features = [
+        Feature(image: UIImage(named: "grocerybag")!, title: "Grocery List", description: "Buy sum fooooooood"),
+        Feature(image: UIImage(named: "recipe_browser")!, title: "Recipe Browser", description: "What's new in the kitchen?"),
+        Feature(image: UIImage(named: "chef")!, title: "Favorite Recipes", description: "The good ones."),
+        Feature(image: UIImage(named: "calendar")!, title: "Weekly Meals", description: "What's on the menu?")
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         // Do any additional setup after loading the view.
-        
-        features = [
-            Feature(image: UIImage(named: "grocerybag")!, title: "Grocery List", description: "Buy sum fooooooood"),
-            Feature(image: UIImage(named: "recipe_browser")!, title: "Recipe Browser", description: "What's new in the kitchen?"),
-            Feature(image: UIImage(named: "chef")!, title: "Favorite Recipes", description: "The good ones."),
-            Feature(image: UIImage(named: "calendar")!, title: "Weekly Meals", description: "What's on the menu?")
-        ]
         
         setUpViews()
         setUpConstraints()
@@ -73,7 +74,7 @@ class ViewController: UIViewController {
             messageLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor)
         ])
         NSLayoutConstraint.activate([
-            featureCollectionView.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 30),
+            featureCollectionView.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 50),
             featureCollectionView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             featureCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -25),
             featureCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
@@ -93,6 +94,15 @@ extension ViewController: UICollectionViewDataSource {
         let featureObject = features[indexPath.item]
         featureCell.configure(for: featureObject)
         return featureCell
+    }
+}
+
+extension ViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if features[indexPath.item].title == "Grocery List" {
+            let groceryViewController = GroceryViewController()
+            navigationController?.pushViewController(groceryViewController, animated: true)
+        }
     }
 }
 
