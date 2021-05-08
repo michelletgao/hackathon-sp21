@@ -29,6 +29,7 @@ class ViewController: UIViewController, GroceryDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Nom Nom"
         view.backgroundColor = .white
         // Do any additional setup after loading the view.
         
@@ -102,6 +103,10 @@ extension ViewController: UICollectionViewDelegate {
         if features[indexPath.item].title == "Grocery List" {
             let groceryViewController = GroceryViewController()
             navigationController?.pushViewController(groceryViewController, animated: true)
+        }
+        else if features[indexPath.item].title == "Recipe Browser" {
+            let browserViewController = BrowserViewController()
+            navigationController?.pushViewController(browserViewController, animated: true)
         }
     }
 }
