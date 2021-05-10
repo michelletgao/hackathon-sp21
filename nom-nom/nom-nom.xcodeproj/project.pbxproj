@@ -24,6 +24,8 @@
 		0CFFE4D8263B995200FE66E5 /* FeatureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFFE4D7263B995200FE66E5 /* FeatureCollectionViewCell.swift */; };
 		0CFFE4DA263B997F00FE66E5 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFFE4D9263B997F00FE66E5 /* Feature.swift */; };
 		0CFFE4DC263E2B4800FE66E5 /* GroceryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFFE4DB263E2B4800FE66E5 /* GroceryViewController.swift */; };
+		CC559E832648B71100EA8427 /* MealEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC559E822648B71100EA8427 /* MealEditViewController.swift */; };
+		CC559E872648C5E700EA8427 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC559E862648C5E700EA8427 /* Meal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		0CFFE4D7263B995200FE66E5 /* FeatureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCollectionViewCell.swift; sourceTree = "<group>"; };
 		0CFFE4D9263B997F00FE66E5 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		0CFFE4DB263E2B4800FE66E5 /* GroceryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryViewController.swift; sourceTree = "<group>"; };
+		CC559E822648B71100EA8427 /* MealEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealEditViewController.swift; sourceTree = "<group>"; };
+		CC559E862648C5E700EA8427 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 				0CA9446A26438D5E007A51BF /* BrowserViewController.swift */,
 				0CA94476264713CD007A51BF /* RecipeViewController.swift */,
 				0CA944782647323B007A51BF /* MealPlannerViewController.swift */,
+				CC559E822648B71100EA8427 /* MealEditViewController.swift */,
 				0CFFE4D7263B995200FE66E5 /* FeatureCollectionViewCell.swift */,
 				0CA9446E26438F90007A51BF /* FilterCollectionViewCell.swift */,
 				0CA9446C26438F68007A51BF /* RecipeCollectionViewCell.swift */,
@@ -93,6 +98,7 @@
 				0CA9447226438FB3007A51BF /* Filter.swift */,
 				0CA9447426439080007A51BF /* Ingredient.swift */,
 				0CA9447026438FAA007A51BF /* Recipe.swift */,
+				CC559E862648C5E700EA8427 /* Meal.swift */,
 				0CFFE4CC263B888500FE66E5 /* Assets.xcassets */,
 				0CFFE4CE263B888500FE66E5 /* LaunchScreen.storyboard */,
 				0CFFE4D1263B888500FE66E5 /* Info.plist */,
@@ -172,6 +178,7 @@
 				0CA9446D26438F68007A51BF /* RecipeCollectionViewCell.swift in Sources */,
 				0CA9446F26438F90007A51BF /* FilterCollectionViewCell.swift in Sources */,
 				0CA9447326438FB3007A51BF /* Filter.swift in Sources */,
+				CC559E872648C5E700EA8427 /* Meal.swift in Sources */,
 				0CFFE4C8263B888300FE66E5 /* ViewController.swift in Sources */,
 				0CA9446B26438D5E007A51BF /* BrowserViewController.swift in Sources */,
 				0CFFE4D8263B995200FE66E5 /* FeatureCollectionViewCell.swift in Sources */,
@@ -180,6 +187,7 @@
 				0CFFE4DA263B997F00FE66E5 /* Feature.swift in Sources */,
 				0CA9447526439080007A51BF /* Ingredient.swift in Sources */,
 				0CA944792647323B007A51BF /* MealPlannerViewController.swift in Sources */,
+				CC559E832648B71100EA8427 /* MealEditViewController.swift in Sources */,
 				0CFFE4C4263B888300FE66E5 /* AppDelegate.swift in Sources */,
 				0CFFE4C6263B888300FE66E5 /* SceneDelegate.swift in Sources */,
 				0CA9447B264738F8007A51BF /* DayCollectionViewCell.swift in Sources */,
@@ -325,6 +333,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9HBX67439Y;
 				INFOPLIST_FILE = "nom-nom/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,6 +353,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9HBX67439Y;
 				INFOPLIST_FILE = "nom-nom/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

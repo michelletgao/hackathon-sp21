@@ -16,7 +16,7 @@ class BrowserViewController: UIViewController {
     private var recipeLabel: UILabel = UILabel()
     
     private var filters: [Filter] = []
-    private var recipes: [Recipe] = []
+    private var recipes: [Recipe] = [] 
     
     private let filterCellReuseIdentifier = "filterCellReuseIdentifier"
     private let recipeCellReuseIdentifier = "recipeCellReuseIdentifier"

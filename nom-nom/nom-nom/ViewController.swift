@@ -108,6 +108,10 @@ extension ViewController: UICollectionViewDelegate {
             let browserViewController = BrowserViewController()
             navigationController?.pushViewController(browserViewController, animated: true)
         }
+        else if features[indexPath.item].title == "Weekly Meals" {
+            let mealPlannerViewController = MealPlannerViewController()
+            navigationController?.pushViewController(mealPlannerViewController, animated: true)
+        }
     }
 }
 
