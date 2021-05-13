@@ -13,13 +13,20 @@ class FeatureCollectionViewCell: UICollectionViewCell {
     private var titleLabel: UILabel = UILabel()
     private var descriptionLabel: UILabel = UILabel()
     private var presentButton: UIButton = UIButton()
+    let lightGreen = UIColor(red: 112/255, green: 144/255, blue: 83/255, alpha: 1)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .white
         contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = UIColor.black.cgColor
+        contentView.layer.borderColor = UIColor(red: 192/255, green: 192/255, blue: 192/255, alpha: 1).cgColor
         contentView.layer.cornerRadius = 10
+        contentView.layer.shadowColor = UIColor.black.cgColor
+        contentView.layer.shadowRadius = 5
+        contentView.layer.shadowOpacity = 0.25
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        contentView.clipsToBounds = false
+        contentView.layer.masksToBounds = false
         
         setUpViews()
         setUpConstraints()
@@ -29,12 +36,12 @@ class FeatureCollectionViewCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(imageView)
         
-        titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 16)
+        titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
         titleLabel.textColor = .black
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(titleLabel)
         
-        descriptionLabel.font = UIFont(name: "HelveticaNeue", size: 12)
+        descriptionLabel.font = UIFont(name: "HelveticaNeue", size: 14)
         descriptionLabel.textColor = .black
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(descriptionLabel)
@@ -52,8 +59,8 @@ class FeatureCollectionViewCell: UICollectionViewCell {
     
     func setUpConstraints() {
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10)
+            imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 14)
         ])
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 10),

@@ -16,9 +16,13 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .white
-        contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = UIColor.black.cgColor
+//        contentView.layer.borderWidth = 1
+//        contentView.layer.borderColor = UIColor.gray.cgColor
         contentView.layer.cornerRadius = 6
+        contentView.layer.shadowColor = UIColor.black.cgColor
+        contentView.layer.shadowRadius = 5
+        contentView.layer.shadowOpacity = 0.25
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
         
         setUpViews()
         setUpConstraints()
@@ -27,6 +31,7 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     func setUpViews() {
         imageView.layer.cornerRadius = 6
         imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(imageView)
         
@@ -72,8 +77,8 @@ class RecipeCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func configure(for recipeObject: Recipe ) {
-        imageView.image = recipeObject.image
+    func configure(for recipeObject: Recipe, image: String ) {
+        imageView.image = UIImage(named: image)
         recipeLabel.text = recipeObject.title
         favoritedButton.isSelected = recipeObject.favorited
     }

@@ -7,10 +7,7 @@
 
 import UIKit
 
-protocol GroceryDelegate: class {
-}
-
-class ViewController: UIViewController, GroceryDelegate {
+class ViewController: UIViewController {
     
     private var featureCollectionView: UICollectionView!
     
@@ -21,16 +18,19 @@ class ViewController: UIViewController, GroceryDelegate {
     private let featureCellPadding: CGFloat = 30
     
     private var features = [
-        Feature(image: UIImage(named: "grocerybag")!, title: "Grocery List", description: "Buy sum fooooooood"),
-        Feature(image: UIImage(named: "recipe_browser")!, title: "Recipe Browser", description: "What's new in the kitchen?"),
-        Feature(image: UIImage(named: "chef")!, title: "Favorite Recipes", description: "The good ones."),
+        Feature(image: UIImage(named: "grocerybag")!, title: "Grocery List", description: "Buy some good eats."),
+        Feature(image: UIImage(named: "recipe_browser")!, title: "My Recipes", description: "Get the kitchen cookin'!"),
         Feature(image: UIImage(named: "calendar")!, title: "Weekly Meals", description: "What's on the menu?")
     ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Nom Nom"
-        view.backgroundColor = .white
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 237/255, blue: 117/255, alpha: 1)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "try")!)
         // Do any additional setup after loading the view.
         
         setUpViews()
@@ -39,12 +39,14 @@ class ViewController: UIViewController, GroceryDelegate {
     
     func setUpViews() {
         titleLabel.text = "Hello Nom-mer!"
+        titleLabel.textColor = UIColor(red: 35/255, green: 35/255, blue: 35/255, alpha: 1)
         titleLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 30)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleLabel)
         
-        messageLabel.text = "You're allowed to eat today."
-        messageLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 12)
+        messageLabel.text = "Plan out your nutrition here."
+        messageLabel.textColor = UIColor(red: 35/255, green: 35/255, blue: 35/255, alpha: 1)
+        messageLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 14)
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(messageLabel)
         
@@ -68,7 +70,7 @@ class ViewController: UIViewController, GroceryDelegate {
     func setUpConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
-            titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20)
+            titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50)
         ])
         NSLayoutConstraint.activate([
             messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
@@ -76,12 +78,11 @@ class ViewController: UIViewController, GroceryDelegate {
         ])
         NSLayoutConstraint.activate([
             featureCollectionView.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 50),
-            featureCollectionView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            featureCollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             featureCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -25),
             featureCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
     }
-
 
 }
 
@@ -104,7 +105,7 @@ extension ViewController: UICollectionViewDelegate {
             let groceryViewController = GroceryViewController()
             navigationController?.pushViewController(groceryViewController, animated: true)
         }
-        else if features[indexPath.item].title == "Recipe Browser" {
+        else if features[indexPath.item].title == "My Recipes" {
             let browserViewController = BrowserViewController()
             navigationController?.pushViewController(browserViewController, animated: true)
         }
@@ -117,7 +118,7 @@ extension ViewController: UICollectionViewDelegate {
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 320, height: 100)
+        return CGSize(width: 320, height: 130)
     }
     
 }

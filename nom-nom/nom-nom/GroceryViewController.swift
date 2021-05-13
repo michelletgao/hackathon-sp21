@@ -10,6 +10,7 @@ import UIKit
 class GroceryViewController: UIViewController {
     
     let titleLabel = UILabel()
+    let groceryImage = UIImageView()
     let subLabel = UILabel()
     let subLabelLine = UIView()
     let dateTextField = UITextField()
@@ -21,7 +22,8 @@ class GroceryViewController: UIViewController {
     let invalidLabel = UILabel()
     let datePadding = UIView(frame: CGRect(x: 0, y: 0, width: 22 , height: 1))
     let commentPadding = UIView(frame: CGRect(x: 0, y: 0, width: 22 , height: 1))
-    let lightBlue = UIColor.init(red: 209/255, green: 217/255, blue: 213/255, alpha: 1)
+    let lightBlue = UIColor.init(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)
+    private let backButton = UIButton()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -41,14 +43,21 @@ class GroceryViewController: UIViewController {
     }
     
     func setUpViews() {
+        backButton.setImage(UIImage(named: "backButton"), for: .normal)
+                backButton.addTarget(self, action: #selector(backPressed), for: .touchUpInside)
+                navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
         
         titleLabel.text = "What do you need?"
-        titleLabel.textColor = UIColor.init(red: 68/255, green: 68/255, blue: 54/255, alpha: 1)
+        titleLabel.textColor = .black
         titleLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 24)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleLabel)
         
-        subLabel.text = "something yummy"
+        groceryImage.image = UIImage(named: "groc")
+        groceryImage.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(groceryImage)
+        
+        subLabel.text = "add something yummy"
         subLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 12)
         subLabel.textColor = lightBlue
         subLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -59,7 +68,7 @@ class GroceryViewController: UIViewController {
         view.addSubview(subLabelLine)
         
         dateTextField.font = UIFont(name: "HelveticaNeue-Light", size: 12)
-        dateTextField.attributedPlaceholder = NSAttributedString(string: "date (mm/dd)", attributes: [NSAttributedString.Key.foregroundColor: lightBlue])
+        dateTextField.attributedPlaceholder = NSAttributedString(string: "number of items", attributes: [NSAttributedString.Key.foregroundColor: lightBlue])
         dateTextField.layer.borderWidth = 1
         dateTextField.layer.cornerRadius = 22
         dateTextField.layer.borderColor = lightBlue.cgColor
@@ -69,7 +78,7 @@ class GroceryViewController: UIViewController {
         view.addSubview(dateTextField)
         
         commentTextField.font = UIFont(name: "HelveticaNeue-Light", size: 12)
-        commentTextField.attributedPlaceholder = NSAttributedString(string: "comment", attributes: [NSAttributedString.Key.foregroundColor: lightBlue])
+        commentTextField.attributedPlaceholder = NSAttributedString(string: "grocery item", attributes: [NSAttributedString.Key.foregroundColor: lightBlue])
         commentTextField.layer.borderWidth = 1
         commentTextField.layer.cornerRadius = 22
         commentTextField.layer.borderColor = lightBlue.cgColor
@@ -80,7 +89,7 @@ class GroceryViewController: UIViewController {
         
         addButton.setTitle("ADD IT >>", for: .normal)
         addButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Medium", size: 14)
-        addButton.setTitleColor(UIColor.init(red: 94/255, green: 74/255, blue: 48/255, alpha: 1), for: .normal)
+        addButton.setTitleColor(.black, for: .normal)
         addButton.addTarget(self, action: #selector(addText), for: .touchUpInside)
         addButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(addButton)
@@ -101,7 +110,7 @@ class GroceryViewController: UIViewController {
         reasonsTextView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(reasonsTextView)
         
-        invalidLabel.text = "invalid date format or comment!"
+        invalidLabel.text = "invalid number or grocery item!"
         invalidLabel.font = UIFont(name: "HelveticaNeue-Light", size: 12)
         invalidLabel.textColor = .red
         invalidLabel.isHidden = true
@@ -116,7 +125,7 @@ class GroceryViewController: UIViewController {
             titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30)
         ])
         NSLayoutConstraint.activate([
-            subLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 6),
+            subLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
             subLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             subLabel.heightAnchor.constraint(equalToConstant: 15)
         ])
@@ -165,30 +174,38 @@ class GroceryViewController: UIViewController {
         NSLayoutConstraint.activate([
             reasonsTextView.topAnchor.constraint(equalTo: reasonsLabelLine.bottomAnchor, constant: 8),
             reasonsTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            reasonsTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -21),
-            reasonsTextView.widthAnchor.constraint(equalToConstant: 330)
+            reasonsTextView.heightAnchor.constraint(equalToConstant: 300),
+            reasonsTextView.widthAnchor.constraint(equalToConstant: 340)
+        ])
+        NSLayoutConstraint.activate([
+            groceryImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            groceryImage.topAnchor.constraint(equalTo: reasonsTextView.bottomAnchor, constant: 30),
+            groceryImage.heightAnchor.constraint(equalToConstant: 150),
+            groceryImage.widthAnchor.constraint(equalToConstant: 180)
         ])
         
         NSLayoutConstraint.activate([
-            invalidLabel.topAnchor.constraint(equalTo: commentTextField.bottomAnchor, constant: 2),
+            invalidLabel.topAnchor.constraint(equalTo: commentTextField.bottomAnchor, constant: 4),
             invalidLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             invalidLabel.heightAnchor.constraint(equalToConstant: 13)
         ])
+    }
+    @objc func backPressed() {
+        navigationController?.popViewController(animated: true)
     }
     
     @objc func addText() {
         let date : String = dateTextField.text!
         let reason : String = commentTextField.text!
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd"
-        
-        if dateFormatter.date(from: date) == nil || reason == "" {
+        if Int(date) == nil || reason == "" {
             invalidLabel.isHidden = false
         } else {
-            reasonsTextView.text = reasonsTextView.text + "- " + date + ": " + reason + "\n"
+            reasonsTextView.text = reasonsTextView.text + "- " + date + " " + reason + "\n"
             invalidLabel.isHidden = true
         }
+        dateTextField.text = ""
+        commentTextField.text = ""
     }
     
 

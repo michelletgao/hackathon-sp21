@@ -7,21 +7,30 @@
 
 import UIKit
 
-class Recipe {
-    var image: UIImage
+class Recipe : Codable {
+//    var image: String
     var title: String
-    var ingredients: [Ingredient]
+    var ingredients: String
     var description: String
-    var restrictions: [Filter]
+//    var restrictions: [Filter]
     var favorited: Bool
 
-    init(image: UIImage, title: String, ingredients: [Ingredient], description: String, restrictions: [Filter], favorited: Bool) {
-        self.image = image
+    init(image: String, title: String, ingredients: String, description: String, favorited: Bool) {
+//        self.image = image
         self.title = title
         self.ingredients = ingredients
         self.description = description
-        self.restrictions = restrictions
+//        self.restrictions = restrictions
         self.favorited = favorited
     }
+}
 
+struct RecipesResponse : Codable {
+    let success: Bool
+    let data: [Recipe]
+}
+
+struct RecipeResponse : Codable {
+    let success: Bool
+    let data: Recipe
 }

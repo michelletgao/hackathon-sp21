@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Filter: Equatable {
+class Filter: Equatable, Codable {
     var label: String
     var selected: Bool
 

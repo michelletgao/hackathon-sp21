@@ -18,8 +18,8 @@ class RecipeViewController: UIViewController {
     let ingredientsTextView = UITextView()
     let descriptionLabel = UILabel()
     let descriptionTextView = UITextView()
-    let restrictionsLabel = UILabel()
-    let restrictionsTextView = UITextView()
+//    let restrictionsLabel = UILabel()
+//    let restrictionsTextView = UITextView()
     
     init(recipe: Recipe) {
         self.recipe = recipe
@@ -35,7 +35,7 @@ class RecipeViewController: UIViewController {
     }
     
     func setUpViews() {
-        recipeImage.image = UIImage(named: "grocerybag")
+        recipeImage.image = UIImage(named: "goodfood-1")
         recipeImage.clipsToBounds = true
         recipeImage.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(recipeImage)
@@ -50,8 +50,9 @@ class RecipeViewController: UIViewController {
         ingredientsLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(ingredientsLabel)
         
-        ingredientsTextView.text = recipe.ingredients.map{ "\($0.name)" }.joined(separator: ", ")
+        ingredientsTextView.text = recipe.ingredients
         ingredientsTextView.font = UIFont(name: "HelveticaNeue", size: 14)
+        ingredientsTextView.isEditable = false
         ingredientsTextView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(ingredientsTextView)
         
@@ -62,18 +63,21 @@ class RecipeViewController: UIViewController {
         
         descriptionTextView.text = recipe.description
         descriptionTextView.font = UIFont(name: "HelveticaNeue", size: 14)
+        descriptionTextView.isEditable = false
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(descriptionTextView)
         
-        restrictionsLabel.text = "Dietary Restrictions:"
-        restrictionsLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 18)
-        restrictionsLabel.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(restrictionsLabel)
+//        restrictionsLabel.text = "Dietary Restrictions:"
+//        restrictionsLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 18)
+//        restrictionsLabel.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(restrictionsLabel)
+//
+//        restrictionsTextView.text = recipe.restrictions.map{ "\($0.label)" }.joined(separator: ", ")
+//        restrictionsTextView.font = UIFont(name: "HelveticaNeue", size: 14)
+//        restrictionsTextView.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(restrictionsTextView)
         
-        restrictionsTextView.text = recipe.restrictions.map{ "\($0.label)" }.joined(separator: ", ")
-        restrictionsTextView.font = UIFont(name: "HelveticaNeue", size: 14)
-        restrictionsTextView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(restrictionsTextView)
+
     }
     
     func setUpConstraints() {
@@ -81,7 +85,7 @@ class RecipeViewController: UIViewController {
             recipeImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             recipeImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
             recipeImage.widthAnchor.constraint(equalToConstant: 240),
-            recipeImage.heightAnchor.constraint(equalToConstant: 180)
+            recipeImage.heightAnchor.constraint(equalToConstant: 220)
         ])
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: recipeImage.bottomAnchor, constant: 20),
@@ -98,7 +102,7 @@ class RecipeViewController: UIViewController {
             ingredientsTextView.heightAnchor.constraint(equalToConstant: 150)
         ])
         NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: 150),
+            descriptionLabel.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: 80),
             descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor)
         ])
         NSLayoutConstraint.activate([
@@ -107,16 +111,16 @@ class RecipeViewController: UIViewController {
             descriptionTextView.trailingAnchor.constraint(equalTo: ingredientsTextView.trailingAnchor),
             descriptionTextView.heightAnchor.constraint(equalToConstant: 150)
         ])
-        NSLayoutConstraint.activate([
-            restrictionsLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 100),
-            restrictionsLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor)
-        ])
-        NSLayoutConstraint.activate([
-            restrictionsTextView.topAnchor.constraint(equalTo: restrictionsLabel.bottomAnchor, constant: 20),
-            restrictionsTextView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            restrictionsTextView.trailingAnchor.constraint(equalTo: ingredientsTextView.trailingAnchor),
-            restrictionsTextView.heightAnchor.constraint(equalToConstant: 100)
-        ])
+//        NSLayoutConstraint.activate([
+//            restrictionsLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 100),
+//            restrictionsLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor)
+//        ])
+//        NSLayoutConstraint.activate([
+//            restrictionsTextView.topAnchor.constraint(equalTo: restrictionsLabel.bottomAnchor, constant: 20),
+//            restrictionsTextView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+//            restrictionsTextView.trailingAnchor.constraint(equalTo: ingredientsTextView.trailingAnchor),
+//            restrictionsTextView.heightAnchor.constraint(equalToConstant: 100)
+//        ])
     }
     
     required init?(coder: NSCoder) {
