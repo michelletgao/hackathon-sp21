@@ -1,4 +1,4 @@
-# hackathon-sp21
+# Nom-nom
 
 **by Michelle Gao and Arianna Curillo**
 
