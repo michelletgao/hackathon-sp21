@@ -1,1 +1,7 @@
 # hackathon-sp21
+
+**by Michelle Gao and Arianna Curillo**
+
+Our app name is called Nom-nom. The perfect place to plan all your nutritional needs. Our app is meant for the busy college student to plan all of their food needs in one place that includes three main features including: a grocery list tracker, a recipe browser, and weekly meals planner. For the gorcery list tracker, you can enter the name and quantity of the item you wish to add to your list and then add it. For the recipe browser, you can browse previous recipes you have added and favorited. For the meal planner, you can plan out your breakfast, lunch, and dinner for each day of the week.
+
+iOS requirements: We used Autolayout using NSLayoutConstraint At least one UICollectionView: We have multiple UICollectionView's including the recipeCollectionView that is in the recipe browser feature of our app. We also have the dayCollectionView in our meal planner feature of our app where the user can put in meal ideas for each day of the week. UINavigationController: We instantiated our UINavigationController in our main ViewController that displays our three main feautres of the app including: a grocery list tracker, a recipe browser, and weekly meals planner on the main page of the app. Integration with an API: We integrated with an API written by our backend team member's. A link to their Github repo is linked below. Backend repo: https://github.com/xplosiveloons/Nomnom/
